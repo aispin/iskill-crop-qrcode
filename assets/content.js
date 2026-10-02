@@ -82,13 +82,14 @@ window.PROMO = {
       steps: {
         eyebrow: "上手",
         title: "三步跑起来",
-        sub: "",
+        sub: "命令由 agent 跑，你只说要什么、看结果。",
         items: [
           { title: "交给 AI 装", desc: "把这句话粘进对话框，agent 会自己拉代码、读文档，再告诉你用法。", codeKey: "install" },
-          { title: "先空跑看看", desc: "--dry-run 只报告将做什么，不落盘，确认后再真跑。", codeName: "bash", code: "node scripts/crop.mjs ~/收款码/ --dry-run" },
-          { title: "批量真跑", desc: "输出到独立目录，长边压到 600。", codeName: "bash", code: "node scripts/crop.mjs ~/收款码/ --out ~/收款码/cropped --max 600" }
+          { title: "说清哪张图、放哪", desc: "路径说清就行；检不出码或图已经很紧凑的会自动跳过，不会硬裁。", codeName: "prompt", code: "把 ~/Downloads/收款海报.jpg 里的二维码裁出来，输出到 ~/Downloads/cropped/" },
+          { title: "扫一下认不认得出", desc: "裁好的图在输出目录，你拿手机扫一遍；批量跑是幂等的，重跑不会重复处理。" }
         ]
       },
+
 
       faq: {
         eyebrow: "问答",
@@ -180,13 +181,14 @@ window.PROMO = {
       steps: {
         eyebrow: "Get started",
         title: "Up and running in three steps",
-        sub: "",
+        sub: "The agent runs the commands. You say what you want and check the result.",
         items: [
           { title: "Let your agent install it", desc: "Paste the line into the chat — it clones the repo, reads the docs, and tells you how to use it.", codeKey: "install" },
-          { title: "Dry-run first", desc: "--dry-run reports what it would do without writing anything.", codeName: "bash", code: "node scripts/crop.mjs ~/codes/ --dry-run" },
-          { title: "Run it for real", desc: "Write to a separate folder and cap the long edge at 600.", codeName: "bash", code: "node scripts/crop.mjs ~/codes/ --out ~/codes/cropped --max 600" }
+          { title: "Say which image, and where", desc: "Just give paths. Images with no detectable code — or already tight — are skipped, never force-cropped.", codeName: "prompt", code: "Crop the QR code out of ~/Downloads/payment-poster.jpg and write it to ~/Downloads/cropped/" },
+          { title: "Scan it once", desc: "Cropped files land in the output dir — scan one with your phone. Batch runs are idempotent, so re-runs don't double-process." }
         ]
       },
+
 
       faq: {
         eyebrow: "FAQ",
