@@ -31,17 +31,19 @@ window.PROMO = {
         meta2: "Node ≥ 18",
         meta3: "仅 macOS（sips）"
       },
-      terminal: {
-        title: "zsh — iskill-crop-qrcode",
-        lines: [
-          [{ t: "$ ", c: "p" }, { t: "node scripts/crop.mjs ~/Desktop/poster.jpg", c: "k" }],
-          [{ t: "✓ ", c: "p" }, { t: "poster-qr.jpg · 正方形 jpeg，长边默认压到 800", c: "s" }],
-          [{ t: "$ ", c: "p" }, { t: "node scripts/crop.mjs ~/收款码/ --out ~/收款码/cropped --max 600", c: "k" }],
-          [{ t: "✓ ", c: "p" }, { t: "裁剪后的码写入 cropped/；已紧凑或检不出的图原样跳过", c: "s" }],
-          [{ t: "$ ", c: "p" }, { t: "node scripts/crop.mjs ~/收款码/ --dry-run", c: "k" }],
-          [{ t: "→ ", c: "p" }, { t: "只报告将会做什么，不落盘", c: "" }]
+      chat: {
+        title: "AI Agent · 对话现场",
+        status: "在线",
+        userLabel: "你",
+        agentLabel: "AI",
+        messages: [
+          { role: "user", text: "把这张收款海报里的二维码裁出来" },
+          { role: "agent", text: "按 finder 图案 1:1:3:1:1 行列双向扫描定位边界，再用三个定位角做右三角校验；检不出码或图已经很紧凑的会自动跳过，绝不硬裁。", tag: "finder 校验通过" },
+          { role: "user", text: "一整个目录都要裁" },
+          { role: "agent", text: "批量跑，输出到独立目录、长边压到 600；幂等可重跑，重跑不会重复处理已裁过的图。" }
         ]
       },
+
 
       stats: [
         { value: "1:1:3:1:1", label: "finder 图案游程", note: "行列双向扫描 + 三定位角右三角校验" },
@@ -130,17 +132,19 @@ window.PROMO = {
         meta2: "Node ≥ 18",
         meta3: "macOS only (sips)"
       },
-      terminal: {
-        title: "zsh — iskill-crop-qrcode",
-        lines: [
-          [{ t: "$ ", c: "p" }, { t: "node scripts/crop.mjs ~/Desktop/poster.jpg", c: "k" }],
-          [{ t: "✓ ", c: "p" }, { t: "poster-qr.jpg · square jpeg, long edge capped at 800 by default", c: "s" }],
-          [{ t: "$ ", c: "p" }, { t: "node scripts/crop.mjs ~/codes/ --out ~/codes/cropped --max 600", c: "k" }],
-          [{ t: "✓ ", c: "p" }, { t: "cropped files written to cropped/; already-tight or undetected images are left as-is", c: "s" }],
-          [{ t: "$ ", c: "p" }, { t: "node scripts/crop.mjs ~/codes/ --dry-run", c: "k" }],
-          [{ t: "→ ", c: "p" }, { t: "reports what it would do without writing anything", c: "" }]
+      chat: {
+        title: "AI Agent · live session",
+        status: "online",
+        userLabel: "You",
+        agentLabel: "AI",
+        messages: [
+          { role: "user", text: "Crop the QR code out of this payment poster" },
+          { role: "agent", text: "I scan rows and columns for the 1:1:3:1:1 finder pattern, then verify with the three corner marks. No detectable code — or already tight? Skipped, never force-cropped.", tag: "finder check passed" },
+          { role: "user", text: "There's a whole folder of them" },
+          { role: "agent", text: "Batch it: separate output dir, long edge capped at 600. It's idempotent, so re-running won't process the same image twice." }
         ]
       },
+
 
       stats: [
         { value: "1:1:3:1:1", label: "finder-pattern run", note: "row/column scan plus three-corner right-triangle check" },
