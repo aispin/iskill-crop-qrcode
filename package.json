@@ -1,0 +1,35 @@
+{
+  "name": "iskill-crop-qrcode",
+  "private": true,
+  "type": "module",
+  "description": "二维码自动定位裁剪 skill；scripts/lib/qrcrop.mjs 为共享真源（iskillDeps 消费方请用 skill-deps 同步）",
+  "iskillShared": [
+    {
+      "path": "scripts/lib/qrcrop.mjs",
+      "description": "零依赖二维码定位与裁剪（sips→BMP→Bradley 二值化→finder 扫描），Node ≥ 18"
+    }
+  ],
+  "iskillDeps": [
+    {
+      "skill": "iskill-promo-page",
+      "repo": "aispin/iskill-promo-page",
+      "path": "templates/promo-page/assets/app.js",
+      "version": "1.0.0",
+      "local": "promo-page/assets/app.js"
+    },
+    {
+      "skill": "iskill-promo-page",
+      "repo": "aispin/iskill-promo-page",
+      "path": "templates/promo-page/assets/style.css",
+      "version": "1.0.0",
+      "local": "promo-page/assets/style.css"
+    },
+    {
+      "skill": "iskill-promo-page",
+      "repo": "aispin/iskill-promo-page",
+      "path": "templates/promo-page/assets/icons.js",
+      "version": "1.0.0",
+      "local": "promo-page/assets/icons.js"
+    }
+  ]
+}
