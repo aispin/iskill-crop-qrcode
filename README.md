@@ -70,4 +70,4 @@ console.log(detectDebug('图.png'));  // rowCands / verified / clusters / triple
 [iskill-generate-sponsors](https://github.com/aispin/iskill-generate-sponsors)
 内置的裁剪模块同源（该 skill 的 `--skip-crop` 即调用它）；本 skill 把它抽成独立 CLI 供单独使用。
 
-> 共享真源：本仓库 `scripts/lib/qrcrop.mjs` 为唯一真源（改文件须同 commit 升文件头 `@iskill-version`；消费方副本用 [iskill-dep-sync](https://github.com/aispin/iskill-dep-sync) 同步）。
+> 依赖同步：本仓库含 iskill 共享真源的 vendored 副本（清单见 `package.json` 的 `iskillDeps`），**不要手改**。使用前请同时安装 iskill-dep-sync：对 agent 说「请帮我安装 Skill：aispin/iskill-dep-sync」；用法见 SKILL.md「依赖同步」节。

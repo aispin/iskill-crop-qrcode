@@ -48,7 +48,7 @@ node scripts/crop.mjs poster.jpg --in-place
 - **定位**：finder 图案（1:1:3:1:1 游程）行列双向扫描 → 候点聚类 → 三定位角右三角校验 → 外扩 3.5 模块即码包围盒。只定位不解码。
 - **跳过**：检不出二维码、图本身已紧凑（裁剪面积 ≥ 95% 原图）时原样保留并说明原因；重跑幂等。
 - **产物**：正方形 jpeg（默认），长边默认压到 800。
-- **平台**：依赖 macOS 自带 `sips`，非 macOS 直接报错退出。Node ≥ 18，零三方依赖。
+- **平台**：依赖 macOS 自带 `sips`，非 macOS 直接报错退出。Node ≥ 24，零三方依赖。
 
 ## 参数调优
 
@@ -79,7 +79,7 @@ console.log(detectDebug('图.png'));  // rowCands / verified / clusters / triple
 
 本仓库 `promo-page/assets/{app.js,style.css,icons.js}` 是 [iskill-promo-page](https://github.com/aispin/iskill-promo-page)
 模板引擎的 vendored 副本（锁定版本见 `package.json` 的 `iskillDeps`），**不要手改**——
-去真源仓库改并升 `@iskill-version`，再用 iskill-dep-sync 同步回来（本机无该工具时按下面自举）：
+去真源仓库改并升 `@iskill-version`，再用 iskill-dep-sync 同步回来。本机未装该工具时，先安装：对 agent 说「请帮我安装 Skill：aispin/iskill-dep-sync」，或按下方自举命令现场拉取：
 
 ```bash
 T="$HOME/.workbuddy/skills/iskill-dep-sync/scripts/skill-deps.mjs"
